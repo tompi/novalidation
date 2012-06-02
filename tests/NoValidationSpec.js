@@ -75,8 +75,20 @@ describe("NoValidation.fodselsNummer", function() {
 	it("feiler på ugyldig kontrollsiffer2 (i)", function() {
 		expect(NoValidation.fodselsNummer("29017542799")).toEqual(false);
 	});
-	it("godtar gyldig fnr", function() {
+	it("feiler på ugyldig individnummer", function() {
+		expect(NoValidation.fodselsNummer("01015780000")).toEqual(false);
+	});
+	it("godtar gyldig fnr (a)", function() {
 		expect(NoValidation.fodselsNummer("29017542794")).toEqual(true);
+	});
+	it("godtar gyldig fnr (b)", function() {
+		expect(NoValidation.fodselsNummer("29029633310")).toEqual(true);
+	});
+	it("godtar gyldig fnr (c)", function() {
+		expect(NoValidation.fodselsNummer("01010101006")).toEqual(true);
+	});
+	it("godtar gyldig D-nummer", function() {
+		expect(NoValidation.fodselsNummer("47086303651")).toEqual(true);
 	});
 });
 
@@ -117,8 +129,14 @@ describe("NoValidation.bankKontoNummer", function() {
 	it("feiler på feil sjekksum (i)", function() {
 		expect(NoValidation.bankKontoNummer("12345678900")).toEqual(false);
 	});
-	it("godtar riktig sjekksum", function() {
+	it("godtar riktig sjekksum (a)", function() {
 		expect(NoValidation.bankKontoNummer("12345678903")).toEqual(true);
+	});
+	it("godtar riktig sjekksum (b)", function() {
+		expect(NoValidation.bankKontoNummer("30600787000")).toEqual(true);
+	});
+	it("godtar riktig sjekksum (c)", function() {
+		expect(NoValidation.bankKontoNummer("30002144219")).toEqual(true);
 	});
 });
 
@@ -156,7 +174,10 @@ describe("NoValidation.orgNummer", function() {
 	it("feiler på feil sjekksum (i)", function() {
 		expect(NoValidation.orgNummer("123456789")).toEqual(false);
 	});
-	it("godtar riktig sjekksum", function() {
+	it("godtar riktig sjekksum (a)", function() {
 		expect(NoValidation.orgNummer("123456785")).toEqual(true);
+	});
+	it("godtar riktig sjekksum (b)", function() {
+		expect(NoValidation.orgNummer("981566378")).toEqual(true);
 	});
 });

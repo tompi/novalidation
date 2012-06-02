@@ -35,6 +35,7 @@ var NoValidation = function() {
 			tempk += nummer[i] * vekter[i];
 		}
 		tempk = 11 - (tempk % 11);
+		if (tempk == 11) tempk = 0;
 		if (tempk != nummer[nummer.length-1]) return false;
 		return true;
 	}
@@ -46,7 +47,6 @@ var NoValidation = function() {
 
 
 	my.fodselsNummer = function(fodselsnummer, godtaHnummer) {
-		// Sjekke at streng er 11 siffer
 		if (!fnrOgBankRegEx.test(fodselsnummer)) return false;
 		// Sjekke at seks første siffer svarer til gyldig dato,
 		// Evt med 4 trukket fra første eller tredje siffer
@@ -54,7 +54,7 @@ var NoValidation = function() {
 		if (dag > 31) dag -= 40;
 		var mnd = parseInt(fodselsnummer.substr(2,2), 10);
 		if (godtaHnummer && mnd > 12) mnd -= 40;
-		// js mnd i dato er 0-11...
+		// js mnd i dato er 0-11
 		mnd--;
 		var aar = parseInt(fodselsnummer.substr(4,2), 10);
 		if (!gyldigDato(aar+1800,mnd,dag) &&
