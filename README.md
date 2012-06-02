@@ -1,8 +1,7 @@
 NoValidation
 ============
 
-Særnorske valideringer i javascript
------------------------------------
+Særnorske valideringer i javascript. Litt som Bekk sin NoCommons(https://github.com/bekkopen/NoCommons) bare i javascript, og ikke så bloated ;-)
 
 Validering av:
 * norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
