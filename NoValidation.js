@@ -6,6 +6,7 @@
  *	a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
  *  b) norske orgnummer: http://www.brreg.no/samordning/organisasjonsnummer.html
  *  c) norske bankkonti: http://no.wikipedia.org/wiki/MOD11
+ *  d) norske helligdager: http://no.wikipedia.org/wiki/Helligdager_i_Norge
  *
  * Skrevet av Thomas.Haukland@gmail.com
  *
@@ -28,6 +29,12 @@ var NoValidation = function() {
 	var k1 = [ 3, 7, 6, 1, 8, 9, 4, 5, 2 ];
 	var mod11 = [ 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 ];
 	var org = [ 3, 2, 7, 6, 5, 4, 3, 2 ];
+	var fasteHelligDager = {
+		0:  { 1: true },
+		4:  { 1: true, 17: true },
+		11: { 25: true, 26: true }
+	};
+	var bevegelige = {};
 
 	function sjekkMod11(nummer, vekter) {
 		var tempk = 0;
@@ -73,6 +80,69 @@ var NoValidation = function() {
 	my.orgNummer = function(orgNummer) {
 		if (!orgNrRegEx.test(orgNummer)) return false;
 		return sjekkMod11(orgNummer, org);
+	};
+
+	my.erHelligDag = function(dato) {
+		if (!(dato instanceof Date)) return false;
+		var dag = dato.getDate();
+		var mnd = dato.getMonth();
+		// Sjekke faste helligdager først
+		if (fasteHelligDager[mnd] && fasteHelligDager[mnd][dag]) return true;
+		// Sjekker mot bevegelige dager
+		var aar = dato.getFullYear();
+		regnUtBevegeligeDager(aar);
+		if (bevegelige[aar][mnd] && bevegelige[aar][mnd][dag]) return true;
+		return false;
+	}
+
+	function regnUtBevegeligeDager(aar) {
+		if (bevegelige[aar]) return;
+		var obj = {};
+		// Første påskedag
+		var h = my.paaskeDag(aar);
+		addDato(obj, h, 0);
+		// Andre påskedag
+		addDato(obj, h, 1);
+		// skjærtorsdag
+		addDato(obj, h, -4);
+		// langfredag
+		addDato(obj, h, 1);
+		// Kristi himmelfartsdag
+		addDato(obj, h, 41);
+		// Første pinsedag
+		addDato(obj, h, 10);
+		// Andre pinsedag
+		addDato(obj, h, 1);
+		bevegelige[aar] = obj;
+	}
+
+	function addDato(obj, dato, offSet) {
+		dato.setDate(dato.getDate() + offSet);
+		var dag = dato.getDate();
+		var mnd = dato.getMonth();
+
+		if (!obj[mnd]) obj[mnd] = {};
+		obj[mnd][dag] = true;
+	}
+
+	my.paaskeDag = function(aar) {
+		// Regne ut påskedag utifra år vha "Påskeformelen" (sjekk wikipedia)
+		var a = aar % 19;
+		var b = ( aar / 100 ) | 0 ;
+		var c = aar % 100;
+		var d = ( b / 4 ) | 0;
+		var e = b % 4;
+		var f = ( ( b + 8 ) / 25 ) | 0;
+		var g = ( ( b - f + 1 ) / 3 ) | 0;
+		var h = ( ( 19 * a ) + b - d - g + 15 ) % 30;
+		var i = ( c / 4 ) | 0;
+		var k = c % 4;
+		var l = ( 32 + ( 2 * e ) + ( 2 * i ) - h - k ) % 7;
+		var m = ( ( a + ( 11 * h ) + ( 22 * l ) ) / 451 ) | 0;
+		var n = ( ( h + l - ( 7 * m ) + 114 ) / 31 ) | 0;
+		var p = ( h + l - ( 7 * m ) + 114 ) % 31;
+
+		return new Date(aar, n-1, p+1);
 	}
 
 	return my;
