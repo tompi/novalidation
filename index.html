@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Novalidation : Særnorske valideringer i javascript" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Novalidation</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tompi/novalidation">View on GitHub</a>
+
+          <h1 id="project_title">Novalidation</h1>
+          <h2 id="project_tagline">Særnorske valideringer i javascript</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tompi/novalidation/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tompi/novalidation/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Særnorske valideringer i javascript. Litt som Bekk sin NoCommons(<a href="https://github.com/bekkopen/NoCommons">https://github.com/bekkopen/NoCommons</a>) bare i javascript, og et par online oppslag i tillegg.</p>
+
+<p>Validering av:</p>
+
+<ul>
+<li>norske fødselsnummer: <a href="http://no.wikipedia.org/wiki/F%C3%B8dselsnummer">http://no.wikipedia.org/wiki/F%C3%B8dselsnummer</a>
+</li>
+<li>norske orgnummer: <a href="http://www.brreg.no/samordning/organisasjonsnummer.html">http://www.brreg.no/samordning/organisasjonsnummer.html</a>
+</li>
+<li>norske bankkonti: <a href="http://no.wikipedia.org/wiki/MOD11">http://no.wikipedia.org/wiki/MOD11</a>
+</li>
+<li>norske helligdager: <a href="http://no.wikipedia.org/wiki/Helligdager_i_Norge">http://no.wikipedia.org/wiki/Helligdager_i_Norge</a>
+</li>
+</ul><p>Online oppslag av:</p>
+
+<ul>
+<li>norske postnummer vha geonames. Skaff deg en gratisbruker her før du
+bruker denne metoden: <a href="http://www.geonames.org/login">http://www.geonames.org/login</a>
+</li>
+<li>norske orgnummer vha difi.no</li>
+</ul><p>Unit-tester i Jasmine.</p>
+
+<h2>Bruk</h2>
+
+<ul>
+<li>Inkluder NoValidation.js i html-fila di.</li>
+<li>Kall funksjonene: 
+
+<ul>
+<li>NoValidation.fodselsnummer("dininput");</li>
+<li>NoValidation.fodselsnummer("dininput", true); (for å godta H-nummer)</li>
+<li>NoValidation.bankKontoNummer("dininput");</li>
+<li>NoValidation.orgNummer("dininput");</li>
+<li>NoValidation.erHelligDag(new Date(2012, 4, 28));</li>
+<li>NoValidation.erHelligDagEllerSondag(new Date(2012, 4, 28));</li>
+<li>NoValidation.slaaOppOrgnr('984661185', function(data) { alert(data.entries[0].navn); }, 'tompi');</li>
+<li>NoValidation.slaaOppPostNummer('4624', function(data) { alert(data.postalcodes[0].placeName); }, 'tompi');</li>
+</ul>
+</li>
+</ul><p>Alle returnerer true eller false, utenom de to siste som du gir en
+funksjon som kalles med returverdi som parameter når oppslag er ferdig.</p>
+
+<p>Lisens: MIT eller GPL v2</p>
+
+<p>Skrevet av <a href="mailto:Thomas.Haukland@gmail.com">Thomas.Haukland@gmail.com</a></p>
+
+<p>Finner du feil, send meg en mail, eller aller helst fork, legg til unit test
+og send en pull-request.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Novalidation maintained by <a href="https://github.com/tompi">tompi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32351546-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
