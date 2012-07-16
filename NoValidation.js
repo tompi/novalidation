@@ -1,12 +1,16 @@
 /*
  * NoValidation
- * v0.9 02.06.2012
+ * v0.9.2 16.07.2012
  *
  * Javascript-pakke for å validere:
- *	a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
+ *  a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
  *  b) norske orgnummer: http://www.brreg.no/samordning/organisasjonsnummer.html
  *  c) norske bankkonti: http://no.wikipedia.org/wiki/MOD11
  *  d) norske helligdager: http://no.wikipedia.org/wiki/Helligdager_i_Norge
+ *
+ * Eller slå opp:
+ *  a) orgnummer vha difi
+ *  b) postnummer vha geonames
  *
  * Skrevet av Thomas.Haukland@gmail.com
  *
@@ -20,9 +24,9 @@ var NoValidation = function() {
 	function gyldigDato(aar, mnd, dag) {
 		var dato = new Date(aar, mnd, dag);
 		// Sjekke at dag/mnd/aar er samme som vi laget dato med:
-		if (dato.getDate() != dag) return false;
-		if (dato.getMonth() != mnd) return false;		
-		if (dato.getFullYear() != aar) return false;		
+		if (dato.getDate() !== dag) return false;
+		if (dato.getMonth() !== mnd) return false;		
+		if (dato.getFullYear() !== aar) return false;		
 		return true;
 	}
 
@@ -42,8 +46,8 @@ var NoValidation = function() {
 			tempk += nummer[i] * vekter[i];
 		}
 		tempk = 11 - (tempk % 11);
-		if (tempk == 11) tempk = 0;
-		if (tempk != nummer[nummer.length-1]) return false;
+		if (tempk === 11) tempk = 0;
+		if (tempk !== parseInt(nummer[nummer.length-1], 10)) return false;
 		return true;
 	}
 
@@ -95,6 +99,11 @@ var NoValidation = function() {
 		return false;
 	}
 
+  my.erHelligDagEllerSondag = function(dato) {
+    if (dato.getDay() === 0) return true;
+    return my.erHelligDag(dato);
+  }
+
 	function regnUtBevegeligeDager(aar) {
 		if (bevegelige[aar]) return;
 		var obj = {};
@@ -144,6 +153,34 @@ var NoValidation = function() {
 
 		return new Date(aar, n-1, p+1);
 	}
+
+	my.slaaOppOrgnr = function(orgnr, suksess) {
+			$.ajax({
+				url: 'http://hotell.difi.no/api/jsonp/brreg/enhetsregisteret',
+				data: {'orgnr': orgnr},
+				dataType: 'jsonp',
+				success: suksess,
+				error: function(xhr, textStatus) {
+					alert('Ooops, noe gikk galt. hotell.difi.no er kanskje nede?:' + textStatus);
+				}
+			});
+	};
+
+  my.slaaOppPostNummer = function(postNummer, suksess, geoNamesUser) {
+			$.ajax({
+        url: 'http://api.geonames.org/postalCodeLookupJSON',
+				data: {
+          'postalcode': postNummer, 
+          'country': 'NO', 
+          'username': geoNamesUser || 'demo'
+        },
+				dataType: 'jsonp',
+				success: suksess,
+				error: function(xhr, textStatus) {
+					alert('Ooops, noe gikk galt. geonames er kanskje nede? Eller du har angitt en ugyldig bruker?:' + textStatus);
+				}
+			});
+  };
 
 	return my;
 }();
