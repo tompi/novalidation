@@ -1,0 +1,29 @@
+{
+  "name": "novalidation",
+  "version": "0.0.0",
+  "description": "Norwegian validations",
+  "main": "NoValidation.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tompi/novalidation.git"
+  },
+  "author": "Thomas Haukland thomas.haukland@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tompi/novalidation/issues"
+  },
+  "homepage": "https://github.com/tompi/novalidation",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-load": "~0.1.2",
+    "grunt-contrib-jasmine": "~0.5.2"
+  }
+}
