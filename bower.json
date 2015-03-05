@@ -1,6 +1,6 @@
 {
   "name": "novalidation",
-  "version": "0.0.0",
+  "version": "0.10.1",
   "homepage": "https://github.com/tompi/novalidation",
   "license": "MIT",
   "private": true,
@@ -12,6 +12,5 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.0.3"
   }
 }

@@ -246,40 +246,6 @@ describe("NoValidation.erHelligDag", function() {
 	});
 });
 
-describe("NoValidation.slaaOppOrgnr", function() {
-	it("984661185 heter POSTEN NORGE AS", function() {
-		var done = false;
-		var navn = '';
-		NoValidation.slaaOppOrgnr('984661185', function (data) {
-			done = true;
-			navn = data.entries[0].navn;
-		});
-		waitsFor(function() {
-			return done;
-		}, "Slå opp orgnr returnerte ikke...", 10000);
-		runs(function() {
-			expect(navn).toEqual('POSTEN NORGE AS');
-		});
-	});
-});
-
-describe("NoValidation.slaaOpPostNummer", function() {
-	it("4624 gir Kristiansand S", function() {
-		var done = false;
-		var navn = '';
-		NoValidation.slaaOppPostNummer('4624', function (data) {
-			done = true;
-			navn = data.postalcodes[0].placeName;
-		}, 'tompi');
-		waitsFor(function() {
-			return done;
-		}, "Slå opp postnummer returnerte ikke...", 10000);
-		runs(function() {
-			expect(navn).toEqual('Kristiansand S');
-		});
-	});
-});
-
 describe("NoValidation.erHelligDagEllerSondag", function() {
 	it("regner ikke 16. juli 2012 som søndag eller helligdag", function() {
 		expect(NoValidation.erHelligDagEllerSondag(new Date(2012, 6, 16))).toEqual(false);

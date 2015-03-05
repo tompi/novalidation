@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 	require('grunt-load')(grunt).loadNpmTasks();
 
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 		jshint: {
@@ -28,5 +27,5 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['jasmine', 'jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'jasmine', 'uglify']);
 };
