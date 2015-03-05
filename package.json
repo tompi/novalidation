@@ -1,13 +1,10 @@
 {
   "name": "novalidation",
-  "version": "0.0.0",
+  "version": "0.10.2",
   "description": "Norwegian validations",
   "main": "NoValidation.js",
   "directories": {
     "test": "tests"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
