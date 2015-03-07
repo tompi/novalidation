@@ -10,8 +10,7 @@ module.exports = function(grunt) {
       pivotal: {
         src: 'src/**/*.js',
         options: {
-          specs: 'tests/*Spec.js',
-          vendor: 'bower_components/jquery/jquery.js'
+          specs: 'tests/*Spec.js'
         }
       }
     },
@@ -26,7 +25,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // Default task(s).
   grunt.registerTask('test', ['jasmine']);
   grunt.registerTask('default', ['jshint', 'test', 'uglify']);
 };
