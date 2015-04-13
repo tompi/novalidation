@@ -1,20 +1,19 @@
 module.exports = function(grunt) {
-	require('grunt-load')(grunt).loadNpmTasks();
+  require('grunt-load')(grunt).loadNpmTasks();
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-		jshint: {
-			all: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
-		},
-		jasmine: {
-			pivotal: {
-				src: 'src/**/*.js',
-				options: {
-					specs: 'tests/*Spec.js',
-					vendor: 'bower_components/jquery/jquery.js'
-				}
-			}
-		},
+    jshint: {
+      all: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
+    },
+    jasmine: {
+      pivotal: {
+        src: 'src/**/*.js',
+        options: {
+          specs: 'tests/*Spec.js'
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -26,6 +25,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // Default task(s).
-  grunt.registerTask('default', ['jshint', 'jasmine', 'uglify']);
+  grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('default', ['jshint', 'test', 'uglify']);
 };
