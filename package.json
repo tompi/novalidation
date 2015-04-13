@@ -1,6 +1,6 @@
 {
   "name": "novalidation",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Norwegian validations, kind of like Bekks nocommons",
   "main": "src/novalidation.js",
   "repository": {

@@ -1,10 +1,10 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish', './' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.32
-4 verbose publish [ './' ]
-5 verbose cache add [ './', null ]
-6 verbose cache add name=undefined spec="./" args=["./",null]
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
 7 verbose parsed url { protocol: null,
 7 verbose parsed url   slashes: null,
 7 verbose parsed url   auth: null,
@@ -14,33 +14,33 @@
 7 verbose parsed url   hash: null,
 7 verbose parsed url   search: null,
 7 verbose parsed url   query: null,
-7 verbose parsed url   pathname: './',
-7 verbose parsed url   path: './',
-7 verbose parsed url   href: './' }
-8 silly lockFile 0ee6c175- ./
-9 verbose lock ./ /home/tompi/.npm/0ee6c175-.lock
-10 verbose tar pack [ '/home/tompi/.npm/novalidation/0.10.1/package.tgz', './' ]
-11 verbose tarball /home/tompi/.npm/novalidation/0.10.1/package.tgz
-12 verbose folder ./
-13 info prepublish novalidation@0.10.1
-14 silly lockFile 04cb2bca-tar tar://./
-15 verbose lock tar://./ /home/tompi/.npm/04cb2bca-tar.lock
-16 silly lockFile c54df4ac--novalidation-0-10-1-package-tgz tar:///home/tompi/.npm/novalidation/0.10.1/package.tgz
-17 verbose lock tar:///home/tompi/.npm/novalidation/0.10.1/package.tgz /home/tompi/.npm/c54df4ac--novalidation-0-10-1-package-tgz.lock
-18 silly lockFile 04cb2bca-tar tar://./
-19 silly lockFile 04cb2bca-tar tar://./
-20 silly lockFile c54df4ac--novalidation-0-10-1-package-tgz tar:///home/tompi/.npm/novalidation/0.10.1/package.tgz
-21 silly lockFile c54df4ac--novalidation-0-10-1-package-tgz tar:///home/tompi/.npm/novalidation/0.10.1/package.tgz
-22 silly lockFile 3a144d29--npm-novalidation-0-10-1-package /home/tompi/.npm/novalidation/0.10.1/package
-23 verbose lock /home/tompi/.npm/novalidation/0.10.1/package /home/tompi/.npm/3a144d29--npm-novalidation-0-10-1-package.lock
-24 silly lockFile 3a144d29--npm-novalidation-0-10-1-package /home/tompi/.npm/novalidation/0.10.1/package
-25 silly lockFile 3a144d29--npm-novalidation-0-10-1-package /home/tompi/.npm/novalidation/0.10.1/package
-26 silly lockFile 0ee6c175- ./
-27 silly lockFile 0ee6c175- ./
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /home/tompi/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/home/tompi/.npm/novalidation/0.10.2/package.tgz', '.' ]
+11 verbose tarball /home/tompi/.npm/novalidation/0.10.2/package.tgz
+12 verbose folder .
+13 info prepublish novalidation@0.10.2
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /home/tompi/.npm/1f1177db-tar.lock
+16 silly lockFile 0e9fcc11--novalidation-0-10-2-package-tgz tar:///home/tompi/.npm/novalidation/0.10.2/package.tgz
+17 verbose lock tar:///home/tompi/.npm/novalidation/0.10.2/package.tgz /home/tompi/.npm/0e9fcc11--novalidation-0-10-2-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 0e9fcc11--novalidation-0-10-2-package-tgz tar:///home/tompi/.npm/novalidation/0.10.2/package.tgz
+21 silly lockFile 0e9fcc11--novalidation-0-10-2-package-tgz tar:///home/tompi/.npm/novalidation/0.10.2/package.tgz
+22 silly lockFile ec8737f7--npm-novalidation-0-10-2-package /home/tompi/.npm/novalidation/0.10.2/package
+23 verbose lock /home/tompi/.npm/novalidation/0.10.2/package /home/tompi/.npm/ec8737f7--npm-novalidation-0-10-2-package.lock
+24 silly lockFile ec8737f7--npm-novalidation-0-10-2-package /home/tompi/.npm/novalidation/0.10.2/package
+25 silly lockFile ec8737f7--npm-novalidation-0-10-2-package /home/tompi/.npm/novalidation/0.10.2/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
 28 silly publish { name: 'novalidation',
-28 silly publish   version: '0.10.1',
+28 silly publish   version: '0.10.2',
 28 silly publish   description: 'Norwegian validations, kind of like Bekks nocommons',
-28 silly publish   main: 'NoValidation.js',
+28 silly publish   main: 'src/novalidation.js',
 28 silly publish   repository:
 28 silly publish    { type: 'git',
 28 silly publish      url: 'https://github.com/tompi/novalidation.git' },
@@ -56,17 +56,52 @@
 28 silly publish      'grunt-contrib-jasmine': '~0.5.2' },
 28 silly publish   readme: 'NoValidation\n============\n\nSærnorske valideringer i javascript. Litt som Bekk sin NoCommons(https://github.com/bekkopen/NoCommons) bare i javascript.\n\nValidering av:\n* norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer\n* norske orgnummer: http://www.brreg.no/samordning/organisasjonsnummer.html\n* norske bankkonti: http://no.wikipedia.org/wiki/MOD11\n* norske helligdager: http://no.wikipedia.org/wiki/Helligdager_i_Norge\n\nUnit-tester i Jasmine.\n\nBruk\n----\n\n* Inkluder NoValidation.js i html-fila di.\n* Kall funksjonene: \n\t* NoValidation.fodselsnummer("dininput");\n\t* NoValidation.fodselsnummer("dininput", true); (for å godta H-nummer)\n\t* NoValidation.bankKontoNummer("dininput");\n\t* NoValidation.orgNummer("dininput");\n\t* NoValidation.erHelligDag(new Date(2012, 4, 28));\n\t* NoValidation.erHelligDagEllerSondag(new Date(2012, 4, 28));\n\nAlle returnerer true eller false\n\nLisens: MIT eller GPL v2\n\nSkrevet av Thomas.Haukland@gmail.com\n\nFinner du feil, send meg en mail, eller aller helst fork, legg til unit test\nog send en pull-request.\n\n',
 28 silly publish   readmeFilename: 'README.md',
-28 silly publish   gitHead: 'b6f6591c23feaf4da2a507f05852e90034bbf936',
-28 silly publish   _id: 'novalidation@0.10.1',
+28 silly publish   gitHead: 'fd14cdbb6a2f6d1159c831d8795cad278d2ab933',
+28 silly publish   _id: 'novalidation@0.10.2',
 28 silly publish   scripts: {},
-28 silly publish   _shasum: 'f7a8aa7c54257ee547cf5dbc37aef6496820fb62',
-28 silly publish   _from: './' }
-29 error need auth auth and email required for publishing
-29 error need auth You need to authorize this machine using `npm adduser`
-30 error System Linux 3.16.0-34-generic
-31 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "./"
-32 error cwd /home/tompi/src/novalidation
-33 error node -v v0.10.32
-34 error npm -v 1.4.28
-35 error code ENEEDAUTH
-36 verbose exit [ 1, true ]
+28 silly publish   _shasum: '04e0bfbb9a4116b92f2e303cce5c828ba6e3f7a4',
+28 silly publish   _from: '.' }
+29 verbose request where is /novalidation
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id e90d0637fab45fed
+32 verbose url raw /novalidation
+33 verbose url resolving [ 'https://registry.npmjs.org/', './novalidation' ]
+34 verbose url resolved https://registry.npmjs.org/novalidation
+35 verbose request where is https://registry.npmjs.org/novalidation
+36 info trying registry request attempt 1 at 23:15:18
+37 http PUT https://registry.npmjs.org/novalidation
+38 http 403 https://registry.npmjs.org/novalidation
+39 verbose headers { date: 'Mon, 13 Apr 2015 21:15:19 GMT',
+39 verbose headers   server: 'Apache',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=60',
+39 verbose headers   'content-length': '96',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'x-served-by': 'cache-ams4126-AMS',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1428959718.590969,VS0,VE1390',
+39 verbose headers   'keep-alive': 'timeout=10, max=50',
+39 verbose headers   connection: 'Keep-Alive' }
+40 error publish Failed PUT 403
+41 error Error: "You cannot publish over the previously published version 0.10.2." : novalidation
+41 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:943:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Linux 3.16.0-34-generic
+44 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+45 error cwd /home/tompi/src/novalidation
+46 error node -v v0.10.32
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]

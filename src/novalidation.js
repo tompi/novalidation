@@ -1,6 +1,6 @@
 /*
  * NoValidation
- * v0.10.2
+ * v0.10.3
  *
  * Javascript-pakke for å validere:
  *  a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
@@ -178,6 +178,6 @@ var NoValidation = function() {
 
 // If we are running under node.js, export as module
 if (typeof module !== 'undefined') {
-	module.exports = NoValidations;
+	module.exports = NoValidation;
 }
 
