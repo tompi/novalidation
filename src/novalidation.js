@@ -1,6 +1,6 @@
 /*
  * NoValidation
- * v0.10.1
+ * v0.10.2
  *
  * Javascript-pakke for å validere:
  *  a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer

@@ -1,8 +1,8 @@
 {
   "name": "novalidation",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Norwegian validations, kind of like Bekks nocommons",
-  "main": "NoValidation.js",
+  "main": "src/novalidation.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tompi/novalidation.git"
