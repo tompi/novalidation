@@ -90,4 +90,10 @@ describe("NoValidation.fodselsNummer", function() {
 	it("godtar gyldig D-nummer", function() {
 		expect(NoValidation.fodselsNummer("47086303651")).toEqual(true);
 	});
+	it("godtar fødselsnummer som er syntetisk PID", function() {
+		expect(NoValidation.fodselsNummer("17912099997")).toEqual(true);
+	});
+	it("godtar D-nummer som er syntetisk PID", function() {
+		expect(NoValidation.fodselsNummer("57912075186")).toEqual(true);
+	});
 });
