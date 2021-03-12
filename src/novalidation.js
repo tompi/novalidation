@@ -1,6 +1,6 @@
 /*
  * NoValidation
- * v0.10.3
+ * v0.11.0
  *
  * Javascript-pakke for å validere:
  *  a) norske fødselsnummer: http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
@@ -69,6 +69,7 @@ var NoValidation = function() {
 		var dag = parseInt(fodselsNummer.substr(0, 2), 10);
 		if (dag > 31) dag -= 40;
 		var mnd = parseInt(fodselsNummer.substr(2, 2), 10);
+		if (mnd > 81) mnd -= 80;
 		if (godtaHnummer && mnd > 12) mnd -= 40;
 		// js mnd i dato er 0-11
 		mnd--;
