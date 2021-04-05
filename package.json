@@ -18,6 +18,7 @@
     "grunt-contrib-jasmine": "^2.2.0",
     "grunt-contrib-jshint": "^3.0.0",
     "grunt-contrib-uglify": "^5.0.0",
-    "grunt-load": "~0.1.2"
+    "grunt-load": "~0.1.2",
+    "ssri": ">=8.0.1"
   }
 }

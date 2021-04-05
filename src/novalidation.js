@@ -14,7 +14,7 @@
  */
 
 var NoValidation = function() {
-	my = {};
+	var my = {};
 	var fnrOgBankRegEx = /^[0-9]{11}$/;
 	var orgNrRegEx = /^[0-9]{9}$/;
 
